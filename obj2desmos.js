@@ -1,7 +1,7 @@
 function obj2Desmos(input) {
     let objArray = input.split(/\r?\n/);
 
-    let rawVertices = objArray.filter(e => e[0] === 'v');
+    let rawVertices = objArray.filter(e => e.startsWith('v '));
     let vertices = rawVertices.map(e => e.split(/\s+/).slice(1))
     let rawFaces = objArray.filter(e => e[0] === 'f');
     let faces = rawFaces.map(e => e.split(/\s+/).slice(1))
