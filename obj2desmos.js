@@ -1,5 +1,9 @@
 function obj2Desmos(input) {
-    let objArray = input.split(/\r?\n/);
+    let objArray = input.split(/\r?\n/).map(e => {
+        let newE = e;
+        if (e[0] === 'f') newE = triangulate(e).map(q => `f ${q.join(' ')}`).join('\n');
+        return newE;
+    }).join('\n').split(/\r?\n/);
 
     let rawVertices = objArray.filter(e => e.startsWith('v '));
     let vertices = rawVertices.map(e => e.split(/\s+/).slice(1))
@@ -9,11 +13,11 @@ function obj2Desmos(input) {
 
     let info = [];
     for (let i = 0; i < 3; i++) {
-        info.push(`${i === 0 ? 'x_{1}' : (i === 1 ? 'y_{1}' : 'z_{1}')}=\\left[${vertices.map(e => parseFloat(e[i])).join()}\\right]`);
+        info.push(`${i === 0 ? 'x_{v}' : (i === 1 ? 'y_{v}' : 'z_{v}')}=\\left[${vertices.map(e => Math.round(10000*parseFloat(e[i]))/10000).join()}\\right]`);
     }
 
     for (let i = 0; i < 3; i++) {
-        info.push(`${i === 0 ? 'f_{1}' : (i === 1 ? 'f_{2}' : 'f_{3}')}=\\left[${faces.map(e => parseFloat(e[i].split('/')[0])).join()}\\right]`);
+        info.push(`${i === 0 ? 'f_{1}' : (i === 1 ? 'f_{2}' : 'f_{3}')}=\\left[${faces.map(e => Math.round(10000*parseFloat(e[i].split('/')[0]))/10000).join()}\\right]`);
     }
 
     return info.join('\n');
