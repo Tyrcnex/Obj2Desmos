@@ -4,7 +4,7 @@ function mtl2Desmos(mtlInput, objInput) {
         let newE = e;
         if (e[0] === 'f') newE = triangulate(e).map(q => `f ${q.join(' ')}`).join('\n');
         return newE;
-    }).join('\n').split(/\r?\n/);;
+    }).join('\n').split(/\r?\n/);
     let colorArray = [];
 
     let materials = [];
@@ -12,7 +12,7 @@ function mtl2Desmos(mtlInput, objInput) {
 
     for (let line of mtlArray) {
         if (line.startsWith('newmtl')) {
-            cmMtl = line.replace('newmtl Material.', '');
+            cmMtl = line.replace('newmtl ', '');
             materials.push({
                 name: cmMtl,
             })
@@ -24,7 +24,7 @@ function mtl2Desmos(mtlInput, objInput) {
 
     let cmObj = ``;
     for (let line of objArray) {
-        if (line.startsWith('usemtl')) cmObj = line.replace('usemtl Material.', '');
+        if (line.startsWith('usemtl')) cmObj = line.replace('usemtl ', '');
         if (cmObj.length > 0 && line.charAt(0) === 'f') {
             colorArray.push(materials.find(e => e.name === cmObj).kd);
         }
