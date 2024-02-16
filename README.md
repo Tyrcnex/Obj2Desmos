@@ -1,4 +1,9 @@
 # Obj2Desmos
-Generates Desmos data from an .obj file!
+Your tool for 3D models in Desmos.
 
-It's simple to use this. Go to [https://www.tyrcnex.github.io/Obj2Desmos](https://tyrcnex.github.io/Obj2Desmos/), open your .obj file in a text editor, paste it into the website, and copy the output into this graph (coming soon).
+## Instructions
+1. Go to [https://www.tyrcnex.github.io/Obj2Desmos](https://tyrcnex.github.io/Obj2Desmos/)
+2. Upload your .obj and/or .mtl file
+3. Paste it into Desmos. 
+
+[Here's an example in Desmos 3D](https://www.desmos.com/3d/3d7405bb99).
