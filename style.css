@@ -137,21 +137,31 @@ a:hover {
 }
 
 #workingArea {
-    height: 100%;
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgb(255, 255, 255)
 }
 
 textarea {
     font-family: 'JetBrains Mono';
-    width: 90%;
+    margin: 0 auto;
+    width: 50%;
     height: 300px;
     position:relative;
-    top:0px;
+    top: 0px;
+    font-size: 20px;
 }
 
-button { 
-    background-color: rgb(27, 137, 240);
-    color: rgb(238, 238, 238);
+#workingArea button {
+    position: relative;
+    display: inline-block;
+    text-align: right;
+}
+
+#convert { 
+    background-color: #eaeaea;
+    color: rgb(21, 21, 21);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     border-radius: 30px;
     font-size: 25px;
@@ -160,7 +170,21 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background-color: rgb(54, 153, 246);
+#convert:hover {
+    background-color: rgb(216, 216, 216);
     transition: 0.1s;
+}
+
+h1, #workingArea button {
+    font-family: 'Titillium Web', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#workingArea fieldset {
+    margin: 0 auto;
+    width: 50%;
+    font-family: 'Titillium Web', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+@media only screen and (max-device-width: 480px) {
+
 }
