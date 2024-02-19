@@ -18,37 +18,10 @@
 </head>
 <body>
     <div id="header">
-        <div id="divVideo">
-            <video id="bgVideo" preload="true" autoplay loop muted>
-                <source src="img/loop.mp4" type="video/mp4" />
-            </video>
-        </div>
-        <div id="transparent"></div>
         <div id="headerTextContent">
-            <p id="title">OBJ2DESMOS</p>
-            <p id="subtitle">+MTL2Desmos</p>
-            <div style="height: 60px;"></div>
+            <p id="title">OBJ2DESMOS <span id="subtitle">+MTL2Desmos</span></p>
             <p id="description">Your tool for 3D models in Desmos.</p>
-            <p id="author">Tyrcnex (<a href="https://naitronbot.github.io/OBJ2Desmos/">original by Naitronbomb</a>)<p>
-        </div>
-    </div>
-    <div style="height: 60px;"></div>
-    <div id="scrollDown">
-        <img src="img/down.png" width="30">
-    </div>
-    <div id="instructions">
-        <div id="instructionsLeft">
-            <div >
-                <p id="instructionsWord">INSTRUCTIONS<span><br>Video instructions coming soon!</span></p>
-                <img src="img/instructions.png" width="400">
-            </div>
-        </div>
-        <div id="instructionsRight">
-            <ol>
-                <li>Import your .OBJ and/or .MTL file below.</li>
-                <li>Click Convert and copy the output data.</li>
-                <li>Use the data in your own 2D graph, or input it into Desmos 3D (<a href="https://www.desmos.com/3d/3d7405bb99">Example</a>).</li>
-            </ol>
+            <p id="author">Tyrcnex (<a href="https://naitronbot.github.io/OBJ2Desmos/" target="_blank">original by Naitronbomb</a>)<p>
         </div>
     </div>
     <div id="workingArea">
@@ -56,8 +29,19 @@
         <fieldset>
             <legend>Settings</legend>
 
+            <label for="precision">Precision (decimal places)</label>
+            <input type="range" name="precision" min="0" max="8" value="5" id="precision" name="precision" oninput="this.nextElementSibling.value = this.value">
+            <output>5</output>
+
+            <br>
+
             <input type="checkbox" id="pts3d" name="pts3d" checked />
             <label for="pts3d">3D point mode</label>
+
+            <br>
+
+            <input type="checkbox" id="face3d" name="face3d" checked />
+            <label for="fac3d">Face indices as 3D points</label>
 
             <br>
 
@@ -96,7 +80,27 @@
         <div style="height:50px;"></div>
     </div>
 
+    <div id="instructions">
+        <div id="instructionsLeft">
+            <div >
+                <p id="instructionsWord">INSTRUCTIONS<span><br>Video instructions coming soon!</span></p>
+                <img src="img/instructions.png" width="400">
+            </div>
+        </div>
+        <div id="instructionsRight">
+            <ol>
+                <li>Import your .OBJ and/or .MTL file below.</li>
+                <li>Click Convert and copy the output data.</li>
+                <li>Use the data in your own 2D graph, or input it into Desmos 3D (<a href="https://www.desmos.com/3d/3d7405bb99">Example</a>).</li>
+            </ol>
+        </div>
+    </div>
+
     <div style="height:100px;"></div>
+
+    <div id="lolmobile">
+        <p>Lol imagine being on mobile</p>
+    </div>
 
     <script src="src/triangulate.js"></script>
     <script src="src/obj2desmos.js"></script>

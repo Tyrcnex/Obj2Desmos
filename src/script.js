@@ -1,5 +1,3 @@
-let scrollDown = document.getElementById('scrollDown');
-
 let inputObj = document.getElementById('inputObj');
 let inputMtl = document.getElementById('inputMtl');
 let outputDesmos = document.getElementById('outputDesmos');
@@ -10,21 +8,15 @@ let fileUploadObjInput = document.getElementById('uploadObj');
 let fileInputMtl = document.getElementById('mtlInput');
 let fileUploadMtlInput = document.getElementById('uploadMtl');
 
+let settingPrecision = document.getElementById('precision');
 let setting3DPts = document.getElementById('pts3d');
+let settingFace3d = document.getElementById('face3d');
 let settingColor3d = document.getElementById('color3d');
 
 convertButton.onclick = function() {
-    let output = obj2Desmos(inputObj.value, setting3DPts.checked);
+    let output = obj2Desmos(inputObj.value, +settingPrecision.value, setting3DPts.checked, settingFace3d.checked);
     if (inputMtl.value.includes('newmtl')) output += `\n${mtl2Desmos(inputMtl.value, inputObj.value, settingColor3d.checked)}`
     outputDesmos.value = output;
-}
-
-window.onscroll = function(e) {
-    if (document.documentElement.scrollTop > 20) {
-        scrollDown.style.opacity = '0';
-    } else {
-        scrollDown.style.opacity = '1';
-    }
 }
 
 fileInputObj.onclick = () => { fileUploadObjInput.click() }
